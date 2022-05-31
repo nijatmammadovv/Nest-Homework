@@ -59,9 +59,7 @@ namespace Nest_Homework_Partial
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            ///// Constants //////
             Constant.ImagePath = Path.Combine(env.WebRootPath,"assets","imgs");
-            /////         //////
         }
     }
 }
