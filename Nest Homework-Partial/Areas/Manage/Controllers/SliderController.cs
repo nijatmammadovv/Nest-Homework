@@ -31,12 +31,12 @@ namespace Nest_Homework_Partial.Areas.Manage.Controllers
         {
             if (slider.Photo.CheckSize(200))
             {
-                ModelState.AddModelError("Photo", "File size must be less than 200kb");
+                ModelState.AddModelError("Photo", "Faylın ölçüsü 200 kb-dan az olmalıdır");
                 return View();
             }
             if (!slider.Photo.CheckType("image/"))
             {
-                ModelState.AddModelError("Photo", "File must be image");
+                ModelState.AddModelError("Photo", "Fayl şəkil olmalıdır");
                 return View();
             }
             slider.Image = await slider.Photo.SaveFileAsync(Path.Combine(Constant.ImagePath, "slider"));

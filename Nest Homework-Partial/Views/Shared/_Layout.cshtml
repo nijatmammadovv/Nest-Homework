@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Nest_Homework_Partial.Services
+@inject LayoutServices service
+@{ 
+    Dictionary<string, string> settings = service.GetSettings();
+}
+<!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
@@ -117,7 +122,7 @@
             <div class="container">
                 <div class="header-wrap">
                     <div class="logo logo-width-1">
-                        <a asp-area="Manage" asp-controller="Dashboard" asp-action="Index"><img src="~/assets/imgs/theme/logo.svg" alt="logo" /></a>
+                        <a asp-area="Manage" asp-controller="Dashboard" asp-action="Index"><img src="~/assets/imgs/theme/@settings["Logo"]" alt="logo" /></a>
                     </div>
                     <div class="header-right">
                         <div class="search-style-2">
@@ -139,7 +144,7 @@
                                 </div>
                                 <div class="header-action-icon-2">
                                     <a class="mini-cart-icon" href="shop-cart.html">
-                                        <img alt="Nest" src="~/assets/imgs/theme/icons/icon-cart.svg" />
+                                        <img alt="Nest" src="~/assets/imgs/theme/icons/@settings["basket"]" />
                                         <span class="pro-count blue">2</span>
                                     </a>
                                     <a href="shop-cart.html"><span class="lable">Cart</span></a>
@@ -183,7 +188,7 @@
                                 </div>
                                 <div class="header-action-icon-2">
                                     <a href="page-account.html">
-                                        <img class="svgInject" alt="Nest" src="~/assets/imgs/theme/icons/icon-user.svg" />
+                                        <img class="svgInject" alt="Nest" src="~/assets/imgs/theme/icons/@settings["Account"]" />
                                     </a>
                                     <a href="page-account.html"><span class="lable ml-0">Account</span></a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
@@ -240,7 +245,7 @@
                     </div>
                     <div class="hotline d-none d-lg-flex">
                         <img src="~/assets/imgs/theme/icons/icon-headphone.svg" alt="hotline" />
-                        <p>1900 - 888<span>24/7 Support Center</span></p>
+                        <p>@settings["SupportCenterPhone"]<span>24/7 Support Center</span></p>
                     </div>
                     <div class="header-action-icon-2 d-block d-lg-none">
                         <div class="burger-icon burger-icon-white">
@@ -404,11 +409,11 @@
                 <div class="col-xl-4 col-lg-6 text-center d-none d-xl-block">
                     <div class="hotline d-lg-inline-flex mr-30">
                         <img src="~/assets/imgs/theme/icons/phone-call.svg" alt="hotline" />
-                        <p>1900 - 6666<span>Working 8:00 - 22:00</span></p>
+                        <p>@settings["WorkingPhone"]<span>Working @settings["WorkingHour"]</span></p>
                     </div>
                     <div class="hotline d-lg-inline-flex">
                         <img src="~/assets/imgs/theme/icons/phone-call.svg" alt="hotline" />
-                        <p>1900 - 8888<span>24/7 Support Center</span></p>
+                        <p>@settings["SupportCenterPhone"]<span>24/7 Support Center</span></p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">

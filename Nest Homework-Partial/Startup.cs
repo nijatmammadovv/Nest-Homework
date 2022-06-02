@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Nest_Homework_Partial.Data_Access_Layer;
+using Nest_Homework_Partial.Services;
 using Nest_Homework_Partial.Utilies;
 using System.IO;
 
@@ -27,6 +28,7 @@ namespace Nest_Homework_Partial
             {
                 opt.UseSqlServer(Configuration["ConnectionStrings:default"]);
             });
+            services.AddScoped<LayoutServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -57,7 +57,7 @@ namespace Nest_Homework_Partial.Areas.Manage.Controllers
             }
             if (_context.Products.Any(p => p.Name.Trim().ToLower() == product.Name.Trim().ToLower()))
             {
-                ModelState.AddModelError("Name", "This name already exist");
+                ModelState.AddModelError("Name", "Bu ad artıq mövcuddur");
                 return View();
             }
             if (product.Photos != null)
@@ -144,11 +144,11 @@ namespace Nest_Homework_Partial.Areas.Manage.Controllers
         {
             if (file.CheckSize(500))
             {
-                return $"{file.FileName} must be less than 500kb";
+                return $"{file.FileName} 500kb-dən az olmalıdır";
             }
             if (!file.CheckType("image/"))
             {
-                return $"{file.FileName} is not image";
+                return $"{file.FileName} şəkil deyil";
             }
             return "";
         }
