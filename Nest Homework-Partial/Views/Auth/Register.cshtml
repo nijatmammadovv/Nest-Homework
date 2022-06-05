@@ -1,0 +1,56 @@
+﻿@using Nest_Homework_Partial.ViewModels.Authorization
+@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="page-content pt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="login_wrap widget-taber-content background-white">
+                            <div class="padding_eight_all bg-white">
+                                <div class="heading_s1">
+                                    <h1 class="mb-5">Hesab yarat</h1>
+                                    <p class="mb-30">Artıq bir hesabınız var mı?<a href="page-login.html">Daxil ol</a></p>
+                                </div>
+                                <form method="post">
+                                    <div class="form-group row">
+                                        <div class="col">
+                                            <input asp-for="Firstname" class="form-control" placeholder="Adınız">
+                                            <span asp-validation-for="Firstname"></span>
+                                        </div>
+                                        <div class="col">
+                                            <input asp-for="Lastname" class="form-control" placeholder="Soyadınız">
+                                            <span asp-validation-for="Lastname"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input asp-for="Username" class="form-control" placeholder="İstifadəçi adınız">
+                                        <span asp-validation-for="Username"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input asp-for="Email" class="form-control" placeholder="Email ünvanınız">
+                                        <span asp-validation-for="Email"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input asp-for="Password" class="form-control" placeholder="Parolunuz">
+                                        <span asp-validation-for="Password"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input asp-for="ConfirmPassword" class="form-control" placeholder="Parolunuzu təhlükəsizlik cəhətdən yenidən daxil edin">
+                                        <span asp-validation-for="ConfirmPassword"></span>
+                                    </div>
+                                    <button type="submit" class="btn btn-fill-out btn-block hover-up font-weight-bold" name="login">Submit &amp; Register</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,13 +1,13 @@
 ﻿@using Nest_Homework_Partial.Services
 @inject LayoutServices service
-@{ 
-    Dictionary<string, string> settings = service.GetSettings();
+@{
+    Dictionary<string,string> settings = service.GetSettings();
 }
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Nest - Multipurpose eCommerce HTML Template</title>
+    <title>Nest - Çoxməqsədli e-ticarət HTML Şablonu</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -106,7 +106,7 @@
                                 <div class="font-xs">
                                     <ul>
                                         <li class="mb-5">Vendor: <span class="text-brand">Nest</span></li>
-                                        <li class="mb-5">MFG:<span class="text-brand"> Jun 4.2021</span></li>
+                                        <li class="mb-5">MFG:<span class="text-brand"> İyun 4.2021</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -128,9 +128,9 @@
                         <div class="search-style-2">
                             <form action="#">
                                 <select class="select-active">
-                                    <option>All Categories</option>
+                                    <option>Bütün kateqoriyalar</option>
                                 </select>
-                                <input type="text" placeholder="Search for items..." />
+                                <input type="text" placeholder="Məhsulları axtarın..." />
                             </form>
                         </div>
                         <div class="header-action-right">
@@ -140,79 +140,41 @@
                                         <img class="svgInject" alt="Nest" src="~/assets/imgs/theme/icons/icon-heart.svg" />
                                         <span class="pro-count blue">6</span>
                                     </a>
-                                    <a href="shop-wishlist.html"><span class="lable">Wishlist</span></a>
+                                    <a href="shop-wishlist.html"><span class="lable">Favorilərim</span></a>
                                 </div>
                                 <div class="header-action-icon-2">
-                                    <a class="mini-cart-icon" href="shop-cart.html">
-                                        <img alt="Nest" src="~/assets/imgs/theme/icons/@settings["basket"]" />
-                                        <span class="pro-count blue">2</span>
+                                    <a class="mini-cart-icon" asp-controller="Product" asp-action="Cart">
+                                        <img alt="Nest" src="~/assets/imgs/theme/icons/@settings["CartIcon"]" />
                                     </a>
-                                    <a href="shop-cart.html"><span class="lable">Cart</span></a>
-                                    <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                        <ul>
-                                            <li>
-                                                <div class="shopping-cart-img">
-                                                    <a href="shop-product-right.html"><img alt="Nest" src="~/assets/imgs/shop/thumbnail-3.jpg" /></a>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="shop-product-right.html">Daisy Casual Bag</a></h4>
-                                                    <h4><span>1 × </span>$800.00</h4>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="shopping-cart-img">
-                                                    <a href="shop-product-right.html"><img alt="Nest" src="~/assets/imgs/shop/thumbnail-2.jpg" /></a>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="shop-product-right.html">Corduroy Shirts</a></h4>
-                                                    <h4><span>1 × </span>$3200.00</h4>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <div class="shopping-cart-footer">
-                                            <div class="shopping-cart-total">
-                                                <h4>Total <span>$4000.00</span></h4>
-                                            </div>
-                                            <div class="shopping-cart-button">
-                                                <a href="shop-cart.html" class="outline">View cart</a>
-                                                <a href="shop-checkout.html">Checkout</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <a asp-controller="Product" asp-action="Cart"><span class="lable">Səbət</span></a>
                                 </div>
                                 <div class="header-action-icon-2">
-                                    <a href="page-account.html">
-                                        <img class="svgInject" alt="Nest" src="~/assets/imgs/theme/icons/@settings["Account"]" />
-                                    </a>
-                                    <a href="page-account.html"><span class="lable ml-0">Account</span></a>
-                                    <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
-                                        <ul>
-                                            <li>
-                                                <a href="page-account.html"><i class="fi fi-rs-user mr-10"></i>My Account</a>
-                                            </li>
-                                            <li>
-                                                <a href="page-account.html"><i class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
-                                            </li>
-                                            <li>
-                                                <a href="page-account.html"><i class="fi fi-rs-label mr-10"></i>My Voucher</a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-wishlist.html"><i class="fi fi-rs-heart mr-10"></i>My Wishlist</a>
-                                            </li>
-                                            <li>
-                                                <a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Setting</a>
-                                            </li>
-                                            <li>
-                                                <a href="page-login.html"><i class="fi fi-rs-sign-out mr-10"></i>Sign out</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    @*<a href="page-account.html">
+                                        <img class="svgInject" alt="Nest" src="~/assets/imgs/theme/icons/@settings["AccountIcon"]" />
+                                    </a>*@
+                                    <a asp-controller="Auth" asp-action="Register"><i style="font-size:25px" class="fi fi-rs-sign-out mr-10"></i><span>Qeydiyyatdan keç</span></a>
+                                    @*<div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
+            <ul>
+                <li>
+                    <a href="page-account.html"><i class="fi fi-rs-user mr-10"></i>Mənim Hesabım</a>
+                </li>
+                <li>
+                    <a href="page-account.html"><i class="fi fi-rs-location-alt mr-10"></i>Sifariş İzləmə</a>
+                </li>
+                <li>
+                    <a href="page-account.html"><i class="fi fi-rs-label mr-10"></i>Mənim çekim</a>
+                </li>
+                <li>
+                    <a href="shop-wishlist.html"><i class="fi fi-rs-heart mr-10"></i>İstək Siyahım</a>
+                </li>
+                <li>
+                    <a href="page-account.html"><i class="fi fi-rs-settings-sliders mr-10"></i>Parametr</a>
+                </li>
+                <li>
+                    <a href="page-login.html"><i class="fi fi-rs-sign-out mr-10"></i>Çıxış</a>
+                </li>
+            </ul>
+        </div>*@
                                 </div>
                             </div>
                         </div>
@@ -230,14 +192,14 @@
                         <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
                             <nav>
                                 <ul>
-                                    <li><a class="active" asp-controller="Home" asp-action="Index">Home</a></li>
-                                    <li><a asp-controller="Home" asp-action="About">About</a></li>
-                                    <li><a asp-controller="Product" asp-action="Index">Products</a></li>
+                                    <li><a class="active" asp-controller="Home" asp-action="Index">Ana səhifə</a></li>
+                                    <li><a asp-controller="Home" asp-action="About">Haqqımızda</a></li>
+                                    <li><a asp-controller="Product" asp-action="Index">Məhsullar</a></li>
                                     <li>
-                                        <a href="blog-category-grid.html">Blog</a>
+                                        <a href="blog-category-grid.html">Bloq</a>
                                     </li>
                                     <li>
-                                        <a href="page-contact.html">Contact</a>
+                                        <a href="page-contact.html">Əlaqə</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -245,7 +207,7 @@
                     </div>
                     <div class="hotline d-none d-lg-flex">
                         <img src="~/assets/imgs/theme/icons/icon-headphone.svg" alt="hotline" />
-                        <p>@settings["SupportCenterPhone"]<span>24/7 Support Center</span></p>
+                        <p>@settings["SupportCenterPhone"]<span>24/7 Dəstək Mərkəzi</span></p>
                     </div>
                     <div class="header-action-icon-2 d-block d-lg-none">
                         <div class="burger-icon burger-icon-white">
@@ -275,7 +237,7 @@
                                             </div>
                                             <div class="shopping-cart-title">
                                                 <h4><a href="shop-product-right.html">Plain Striola Shirts</a></h4>
-                                                <h3><span>1 × </span>$800.00</h3>
+                                                <h3><span>1 × </span>800.00 m</h3>
                                             </div>
                                             <div class="shopping-cart-delete">
                                                 <a href="#"><i class="fi-rs-cross-small"></i></a>
@@ -287,7 +249,7 @@
                                             </div>
                                             <div class="shopping-cart-title">
                                                 <h4><a href="shop-product-right.html">Macbook Pro 2022</a></h4>
-                                                <h3><span>1 × </span>$3500.00</h3>
+                                                <h3><span>1 × </span>3500.00 m</h3>
                                             </div>
                                             <div class="shopping-cart-delete">
                                                 <a href="#"><i class="fi-rs-cross-small"></i></a>
@@ -296,11 +258,11 @@
                                     </ul>
                                     <div class="shopping-cart-footer">
                                         <div class="shopping-cart-total">
-                                            <h4>Total <span>$383.00</span></h4>
+                                            <h4>Ümumi <span>383.00 m</span></h4>
                                         </div>
                                         <div class="shopping-cart-button">
-                                            <a href="shop-cart.html">View cart</a>
-                                            <a href="shop-checkout.html">Checkout</a>
+                                            <a asp-controller="Product" asp-action="Cart">Səbətə baxın</a>
+                                            <a href="shop-checkout.html">Yoxla</a>
                                         </div>
                                     </div>
                                 </div>
@@ -327,7 +289,7 @@
             <div class="mobile-header-content-area">
                 <div class="mobile-search search-style-3 mobile-header-border">
                     <form action="#">
-                        <input type="text" placeholder="Search for items…" />
+                        <input type="text" placeholder="Axtarış edin…" />
                         <button type="submit"><i class="fi-rs-search"></i></button>
                     </form>
                 </div>
@@ -335,14 +297,14 @@
                     <!-- mobile menu start -->
                     <nav>
                         <ul class="mobile-menu font-heading">
-                            <li><a class="active" href="index.html">Home</a></li>
-                            <li><a href="page-about.html">About</a></li>
-                            <li><a href="shop-grid-right.html">Shop</a></li>
+                            <li><a class="active" href="index.html">Ana səhifə</a></li>
+                            <li><a href="page-about.html">Haqqımızda</a></li>
+                            <li><a href="shop-grid-right.html">Məhsullar</a></li>
                             <li>
-                                <a href="blog-category-grid.html">Blog</a>
+                                <a href="blog-category-grid.html">Bloq</a>
                             </li>
                             <li>
-                                <a href="page-contact.html">Contact</a>
+                                <a href="page-contact.html">Əlaqə</a>
                             </li>
                         </ul>
                     </nav>
@@ -350,13 +312,13 @@
                 </div>
                 <div class="mobile-header-info-wrap">
                     <div class="single-mobile-header-info">
-                        <a href="page-contact.html"><i class="fi-rs-marker"></i> Our location </a>
+                        <a href="page-contact.html"><i class="fi-rs-marker"></i> Bizim ünvanımız </a>
                     </div>
                     <div class="single-mobile-header-info">
-                        <a href="page-login.html"><i class="fi-rs-user"></i>Log In / Sign Up </a>
+                        <a href="page-login.html"><i class="fi-rs-user"></i>Daxil ol / Qeydiyyatdan Keç </a>
                     </div>
                     <div class="single-mobile-header-info">
-                        <a href="#"><i class="fi-rs-headphones"></i>(+01) - 2345 - 6789 </a>
+                        <a href="#"><i class="fi-rs-headphones"></i>(+994)-514510468 </a>
                     </div>
                 </div>
                 <div class="mobile-social-icon mb-50">
@@ -367,7 +329,7 @@
                     <a href="#"><img src="~/assets/imgs/theme/icons/icon-pinterest-white.svg" alt="" /></a>
                     <a href="#"><img src="~/assets/imgs/theme/icons/icon-youtube-white.svg" alt="" /></a>
                 </div>
-                <div class="site-copyright">Copyright 2021 © Nest. All rights reserved. Powered by AliThemes.</div>
+                <div class="site-copyright">Copyright 2021 © Nest. Bütün hüquqlar qorunur. AliThemes tərəfindən təchiz edilmişdir.</div>
             </div>
         </div>
     </div>
@@ -383,13 +345,13 @@
                         <div class="position-relative newsletter-inner">
                             <div class="newsletter-content">
                                 <h2 class="mb-20">
-                                    Stay home & get your daily <br />
-                                    needs from our shop
+                                    Evdə qalın və gündəlikinizi alın <br />
+                                    mağazamızdan tələb olunur
                                 </h2>
-                                <p class="mb-45">Start You'r Daily Shopping with <span class="text-brand">Nest Mart</span></p>
+                                <p class="mb-45">Gündəlik alış-verişə başlayın <span class="text-brand">Nest Mart</span></p>
                                 <form class="form-subcriber d-flex">
-                                    <input type="email" placeholder="Your emaill address" />
-                                    <button class="btn" type="submit">Subscribe</button>
+                                    <input type="email" placeholder="E-poçt ünvanınız" />
+                                    <button class="btn" type="submit">Abunə ol</button>
                                 </form>
                             </div>
                             <img src="~/assets/imgs/banner/banner-9.png" alt="newsletter" />
@@ -404,28 +366,28 @@
                     <div class="footer-bottom"></div>
                 </div>
                 <div class="col-xl-4 col-lg-6 col-md-6">
-                    <p class="font-sm mb-0">&copy; 2021, <strong class="text-brand">Nest</strong> - HTML Ecommerce Template <br />All rights reserved</p>
+                    <p class="font-sm mb-0">&copy; 2022, <strong class="text-brand">Nest</strong> - HTML E-ticarət Şablonu <br />Bütün hüquqlar qorunur</p>
                 </div>
                 <div class="col-xl-4 col-lg-6 text-center d-none d-xl-block">
                     <div class="hotline d-lg-inline-flex mr-30">
                         <img src="~/assets/imgs/theme/icons/phone-call.svg" alt="hotline" />
-                        <p>@settings["WorkingPhone"]<span>Working @settings["WorkingHour"]</span></p>
+                        <p>@settings["WorkPhone"]<span>İşləyir @settings["WorkingHour"]</span></p>
                     </div>
                     <div class="hotline d-lg-inline-flex">
                         <img src="~/assets/imgs/theme/icons/phone-call.svg" alt="hotline" />
-                        <p>@settings["SupportCenterPhone"]<span>24/7 Support Center</span></p>
+                        <p>@settings["SupportCenterPhone"]<span>24/7 Dəstək Mərkəzi</span></p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
                     <div class="mobile-social-icon">
-                        <h6>Follow Us</h6>
+                        <h6>Bizi sosial şəbəkələrdən izləyin</h6>
                         <a href="#"><img src="~/assets/imgs/theme/icons/icon-facebook-white.svg" alt="" /></a>
                         <a href="#"><img src="~/assets/imgs/theme/icons/icon-twitter-white.svg" alt="" /></a>
                         <a href="#"><img src="~/assets/imgs/theme/icons/icon-instagram-white.svg" alt="" /></a>
                         <a href="#"><img src="~/assets/imgs/theme/icons/icon-pinterest-white.svg" alt="" /></a>
                         <a href="#"><img src="~/assets/imgs/theme/icons/icon-youtube-white.svg" alt="" /></a>
                     </div>
-                    <p class="font-sm">Up to 15% discount on your first subscribe</p>
+                    <p class="font-sm">İlk abunənizə 15%-ə qədər endirim</p>
                 </div>
             </div>
         </div>
@@ -466,4 +428,3 @@
     <script src="~/assets/js/shop.js?v=4.0"></script>
 </body>
 </html>
-

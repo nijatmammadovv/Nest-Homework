@@ -7,7 +7,7 @@
     <div class="col-search">
         <form class="searchform">
             <div class="input-group">
-                <input list="search_terms" type="text" class="form-control" placeholder="Search term" />
+                <input list="search_terms" type="text" class="form-control" placeholder="Axtarış edin" />
                 <button class="btn btn-light bg" type="button"><i class="material-icons md-search"></i></button>
             </div>
             <datalist id="search_terms">
@@ -45,13 +45,13 @@
             <li class="dropdown nav-item">
                 <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="~/admin/assets/imgs/people/avatar-2.png" alt="User" /></a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
-                    <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i>Edit Profile</a>
-                    <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Account Settings</a>
-                    <a class="dropdown-item" href="#"><i class="material-icons md-account_balance_wallet"></i>Wallet</a>
-                    <a class="dropdown-item" href="#"><i class="material-icons md-receipt"></i>Billing</a>
-                    <a class="dropdown-item" href="#"><i class="material-icons md-help_outline"></i>Help center</a>
+                    <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i>Profili düzənlə</a>
+                    <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Hesab parametrləri</a>
+                    <a class="dropdown-item" href="#"><i class="material-icons md-account_balance_wallet"></i>Pul kisəsi</a>
+                    <a class="dropdown-item" href="#"><i class="material-icons md-receipt"></i>Fakturalandırma</a>
+                    <a class="dropdown-item" href="#"><i class="material-icons md-help_outline"></i>Yardım mərkəzi</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="#"><i class="material-icons md-exit_to_app"></i>Logout</a>
+                    <a class="dropdown-item text-danger" href="#"><i class="material-icons md-exit_to_app"></i>Çıxış</a>
                 </div>
             </li>
         </ul>
@@ -61,29 +61,29 @@
     <div class="row container justify-content-sm-between">
         <div class="col-12">
             <div class="content-header">
-                <h2 class="content-title">Add New Product</h2>
+                <h2 class="content-title">Yeni Məhsul əlavə edin</h2>
             </div>
         </div>
         <div class="col-lg-7">
             <div class="card mb-4">
                 <div class="card-header">
-                    <h4>Basic</h4>
+                    <h4>Əsas</h4>
                 </div>
                 <div class="card-body">
                     <form method="post" enctype="multipart/form-data">
                         <div class="mb-4">
                             <label asp-for="Name" class="form-label"></label>
-                            <input asp-for="Name" placeholder="Type here" class="form-control" />
+                            <input asp-for="Name" placeholder="Bura yazın" class="form-control" />
                             <span class="text-danger" asp-validation-for="Name"></span>
                         </div>
                         <div class="mb-4">
                             <label asp-for="Description" class="form-label"></label>
-                            <textarea asp-for="Description" placeholder="Type here" class="form-control" rows="4"></textarea>
+                            <textarea asp-for="Description" placeholder="Bura yazın" class="form-control" rows="4"></textarea>
                             <span class="text-danger" asp-validation-for="Description"></span>
                         </div>
                         <div class="mb-4">
                             <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories,nameof(Category.Id),nameof(Category.Name)))" class="form-select">
-                                <option disabled selected>Categories</option>
+                                <option disabled selected>Kateqoriyalar</option>
                             </select>
                         </div>
                         <div class="row">
@@ -149,8 +149,8 @@
                         </div>
                         <div class="mb-4 d-flex justify-content-end">
                             <div>
-                                <button type="submit" class="btn btn-md rounded font-sm hover-up ms-auto">Create</button>
-                                <a asp-action="Index" class="btn btn-google rounded font-sm hover-up ms-auto">Go Back</a>
+                                <button type="submit" class="btn btn-md rounded font-sm hover-up ms-auto">Yaradın</button>
+                                <a asp-action="Index" class="btn btn-google rounded font-sm hover-up ms-auto">Geri gayıt</a>
                             </div>
                         </div>
                     </form>

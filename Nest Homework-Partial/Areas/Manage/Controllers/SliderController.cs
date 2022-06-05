@@ -4,6 +4,7 @@ using Nest_Homework_Partial.Models;
 using Nest_Homework_Partial.Utilies;
 using Nest_Homework_Partial.Utilies.Extensions;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Nest_Homework_Partial.Areas.Manage.Controllers
@@ -19,7 +20,7 @@ namespace Nest_Homework_Partial.Areas.Manage.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(_context.Sliders.ToList());
         }
         public ActionResult Create()
         {
@@ -29,14 +30,14 @@ namespace Nest_Homework_Partial.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(Slider slider)
         {
-            if (slider.Photo.CheckSize(200))
+            if (slider.Photo.CheckSize(2000))
             {
-                ModelState.AddModelError("Photo", "Faylın ölçüsü 200 kb-dan az olmalıdır");
+                ModelState.AddModelError("Photo", "Faylın ölçüsü 2000 kilobaytdan az olmalıdır!");
                 return View();
             }
             if (!slider.Photo.CheckType("image/"))
             {
-                ModelState.AddModelError("Photo", "Fayl şəkil olmalıdır");
+                ModelState.AddModelError("Photo", "Göndərilən fayl şəkil olmalıdır");
                 return View();
             }
             slider.Image = await slider.Photo.SaveFileAsync(Path.Combine(Constant.ImagePath, "slider"));

@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Nest_Homework_Partial.Areas.Manage.Controllers
 {
-    [Area("manage")]
+    [Area("Manage")]
     public class ProductController : Controller
     {
         private AppDbContext _context { get; }
@@ -57,7 +57,7 @@ namespace Nest_Homework_Partial.Areas.Manage.Controllers
             }
             if (_context.Products.Any(p => p.Name.Trim().ToLower() == product.Name.Trim().ToLower()))
             {
-                ModelState.AddModelError("Name", "Bu ad artıq mövcuddur");
+                ModelState.AddModelError("Name", "Göndərilən məhsul saytda mövcuddur!");
                 return View();
             }
             if (product.Photos != null)
@@ -142,13 +142,13 @@ namespace Nest_Homework_Partial.Areas.Manage.Controllers
         }
         private string IsPhotoOk(IFormFile file)
         {
-            if (file.CheckSize(500))
+            if (file.CheckSize(2000))
             {
-                return $"{file.FileName} 500kb-dən az olmalıdır";
+                return $"{file.FileName} ölçüsü 2000 kilobbaytdan az olmalıdır";
             }
             if (!file.CheckType("image/"))
             {
-                return $"{file.FileName} şəkil deyil";
+                return $"{file.FileName} şəkil deyil.";
             }
             return "";
         }

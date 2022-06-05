@@ -6,8 +6,8 @@
             <div class="product-img-action-wrap">
                 <div class="product-img product-img-zoom">
                     <a href="shop-product-right.html">
-                        <img class="default-img" width="190" src="assets/imgs/shop/@item.ProductImages.FirstOrDefault(pi=>pi.IsFront==true).Image" alt="" />
-                        <img class="hover-img" width="190" src="assets/imgs/shop/@item.ProductImages.FirstOrDefault(pi=>pi.IsBack==true).Image" alt="" />
+                        <img class="default-img" width="190" src="~/assets/imgs/shop/@item.ProductImages.FirstOrDefault(pi=>pi.IsFront==true).Image" alt="" />
+                        <img class="hover-img" width="190" src="~/assets/imgs/shop/@item.ProductImages.FirstOrDefault(pi=>pi.IsBack==true).Image" alt="" />
                     </a>
                 </div>
                 <div class="product-action-1">
@@ -17,7 +17,7 @@
                 <div class="product-badges product-badges-position product-badges-mrg">
                     @if (item.StockCount == 0)
                     {
-                        <span class="hot">Bitdi</span>
+                        <span class="hot">Tükəndi</span>
                     }
                 </div>
             </div>
@@ -32,16 +32,13 @@
                     </div>
                     <span class="font-small ml-5 text-muted"> (@item.Raiting)</span>
                 </div>
-                @*<div>
-                        <span class="font-small text-muted">By <a href="vendor-details-1.html">Stouffer</a></span>
-                    </div>*@
                 <div class="product-card-bottom">
                     <div class="product-price">
-                        <span>$@item.Price</span>
+                        <span>@item.Price ₼</span>
                     </div>
-                    <div class="add-cart">
-                        <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
-                    </div>
+                    <form method="post" asp-controller="Product" asp-action="AddBasket" asp-route-id="@item.Id" class="add-cart">
+                        <button type="submit" class="add btn"><i class="fi-rs-shopping-cart mr-5"></i>Səbətə at</button>
+                    </form>
                 </div>
             </div>
         </div>

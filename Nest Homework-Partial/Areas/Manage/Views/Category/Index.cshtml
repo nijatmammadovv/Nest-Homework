@@ -14,7 +14,7 @@
     <div class="col-search">
         <form class="searchform">
             <div class="input-group">
-                <input list="search_terms" type="text" class="form-control" placeholder="Search term" />
+                <input list="search_terms" type="text" class="form-control" placeholder="Axtarış termini" />
                 <button class="btn btn-light bg" type="button"><i class="material-icons md-search"></i></button>
             </div>
             <datalist id="search_terms">
@@ -52,13 +52,13 @@
             <li class="dropdown nav-item">
                 <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="assets/imgs/people/avatar-2.png" alt="User" /></a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
-                    <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i>Edit Profile</a>
-                    <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Account Settings</a>
-                    <a class="dropdown-item" href="#"><i class="material-icons md-account_balance_wallet"></i>Wallet</a>
-                    <a class="dropdown-item" href="#"><i class="material-icons md-receipt"></i>Billing</a>
-                    <a class="dropdown-item" href="#"><i class="material-icons md-help_outline"></i>Help center</a>
+                    <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i>Profili Düzənlə</a>
+                    <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Hesab Parametrləri</a>
+                    <a class="dropdown-item" href="#"><i class="material-icons md-account_balance_wallet"></i>Pul kisəsi</a>
+                    <a class="dropdown-item" href="#"><i class="material-icons md-receipt"></i>Fakturalandırma</a>
+                    <a class="dropdown-item" href="#"><i class="material-icons md-help_outline"></i>Yardım mərkəzi</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="#"><i class="material-icons md-exit_to_app"></i>Logout</a>
+                    <a class="dropdown-item text-danger" href="#"><i class="material-icons md-exit_to_app"></i>Çıxış</a>
                 </div>
             </li>
         </ul>
@@ -67,11 +67,11 @@
 <section class="content-main">
     <div class="content-header">
         <div>
-            <h2 class="content-title card-title">Categories</h2>
-            <p>Add, edit or delete a category</p>
+            <h2 class="content-title card-title">Kateqoriya</h2>
+            <p>Kateqoriya əlavə edin, redaktə edin və ya silin</p>
         </div>
         <div>
-            <input type="text" placeholder="Search Categories" class="form-control bg-white" />
+            <input type="text" placeholder="Kateqoriyaları axtarın" class="form-control bg-white" />
         </div>
     </div>
     <div class="card">
@@ -80,15 +80,15 @@
                 <div class="col-md-3">
                     <form method="post" asp-action="Create">
                         <div class="mb-4">
-                            <label for="Name" class="form-label">Name</label>
-                            <input name="Name" id="Name" type="text" placeholder="Type here" class="form-control" />
+                            <label for="Name" class="form-label">Ad</label>
+                            <input name="Name" id="Name" type="text" placeholder="Bura yazın" class="form-control" />
                         </div>
                         <div class="mb-4">
-                            <label for="Logo" class="form-label">Logo</label>
-                            <input type="text" name="Logo" placeholder="Type here" class="form-control" id="Logo" />
+                            <label for="Logo" class="form-label">Loqo</label>
+                            <input type="text" name="Logo" placeholder="Bura yazın" class="form-control" id="Logo" />
                         </div>
                         <div class="d-grid">
-                            <button class="btn btn-primary">Create category</button>
+                            <button class="btn btn-primary">Kateqoriya yaradın</button>
                         </div>
                     </form>
                 </div>
@@ -103,37 +103,37 @@
                                         </div>
                                     </th>
                                     <th>ID</th>
-                                    <th>Logo</th>
-                                    <th>Name</th>
-                                    <th>Product Count</th>
-                                    <th class="text-end">Action</th>
+                                    <th>Loqo</th>
+                                    <th>Kateqoriyanın adı</th>
+                                    <th>Məhsul sayı</th>
+                                    <th class="text-end">Fəaliyyət</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    <tr @(item.IsDeleted == true ? "class=bg-danger" : "")>
-                                        <td class="text-center">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" />
+                                <tr @(item.IsDeleted == true ? "class=bg-danger" : "")>
+                                    <td class="text-center">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" />
+                                        </div>
+                                    </td>
+                                    <td>@item.Id</td>
+                                    <td><img src="~/assets/imgs/shop/@item.Logo" alt="Category Logo" /></td>
+                                    <td><b>@item.Name</b></td>
+                                    <td>@item.Products.Count</td>
+                                    <td class="text-end">
+                                        <div class="dropdown">
+                                            <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#">Detallara baxın</a>
+                                                <a class="dropdown-item" href="#">Məlumatı redaktə edin</a>
+                                                <a class="dropdown-item text-danger" asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id">Silin</a>
                                             </div>
-                                        </td>
-                                        <td>@item.Id</td>
-                                        <td><img src="~/assets/imgs/shop/@item.Logo" alt="Category Logo" /></td>
-                                        <td><b>@item.Name</b></td>
-                                        <td>@item.Products.Count</td>
-                                        <td class="text-end">
-                                            <div class="dropdown">
-                                                <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">View detail</a>
-                                                    <a class="dropdown-item" href="#">Edit info</a>
-                                                    <a class="dropdown-item text-danger" asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                                                </div>
-                                            </div>
-                                            <!-- dropdown //end -->
-                                        </td>
-                                        </tr@(item.IsDeleted==true?"Silinib":"Gorsenir")>
+                                        </div>
+                                        <!-- dropdown //end -->
+                                    </td>
+                                    </tr@(item.IsDeleted==true?"Silinib":"Silinməyib")>
                                     }
                         </tbody>
                     </table>
