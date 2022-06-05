@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Nest_Homework_Partial.Data_Access_Layer;
 using Nest_Homework_Partial.Models;
+using Nest_Homework_Partial.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,5 +50,50 @@ namespace Nest_Homework_Partial.Controllers
                                 .Include(p => p.ProductImages)
                                 .Include(p => p.Category));
         }
+        public IActionResult Basket()
+        {
+            List<BasketVM> product = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["Basket"]);
+            return Json(product);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddBasket(int? id)
+        {
+            if (id == null) return BadRequest();
+            Product dbProduct = await _context.Products.FindAsync(id);
+            if (dbProduct == null) return NotFound();
+            UpdateBasket((int)id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        private List<BasketVM> GetBasket()
+        {
+            List<BasketVM> basketItems = new List<BasketVM>();
+            if (Request.Cookies["Basket"] != null)
+            {
+                basketItems = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["Basket"]);
+            }
+            return basketItems;
+        }
+        private void UpdateBasket(int id)
+        {
+            List<BasketVM> basketItems = GetBasket();
+            BasketVM basketItem = basketItems.Find(bi => bi.ProductId == id);
+            if (basketItem != null)
+            {
+                basketItem.Count += 1;
+            }
+            else
+            {
+                basketItem = new BasketVM
+                {
+                    ProductId = id,
+                    Count = 1
+                };
+                basketItems.Add(basketItem);
+            }
+            Response.Cookies.Append("Basket", JsonConvert.SerializeObject(basketItems));
+        }
+
     }
 }

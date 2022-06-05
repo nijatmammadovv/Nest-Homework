@@ -43,7 +43,7 @@
                                         <input asp-for="ConfirmPassword" class="form-control" placeholder="Parolunuzu təhlükəsizlik cəhətdən yenidən daxil edin">
                                         <span asp-validation-for="ConfirmPassword"></span>
                                     </div>
-                                    <button type="submit" class="btn btn-fill-out btn-block hover-up font-weight-bold" name="login">Submit &amp; Register</button>
+                                    <button type="submit" class="btn btn-fill-out btn-block hover-up font-weight-bold" name="login">Qeydiyyat</button>
                                 </form>
                             </div>
                         </div>
@@ -53,4 +53,9 @@
         </div>
     </div>
 </div>
+
+@section scripts
+{ 
+    <partial name="~/Areas/Manage/Views/Shared/_ValidationPartial.cshtml" />
+}
 
